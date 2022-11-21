@@ -4,3 +4,14 @@ Explain under which circumstances *Tight Class Cohesion* (TCC) and *Loose Class 
 
 ## Answer
 
+TCC and LCC will have the same value if the numbers of indirect connected methods is equal to 0.
+
+TCC = NDC / NP
+NDC : number of direct connections
+
+LCC = (NDC + NIC) / NP
+NIC : number of indirect connections
+
+If NIC = 0 then LCC = NDC / NP = TCC
+
+Still according this formula TCC <= LCC because the factor NIC can only increase the result. So in the worst case their values will be the same.
