@@ -14,4 +14,43 @@ NIC : number of indirect connections
 
 If NIC = 0 then LCC = NDC / NP = TCC
 
+
+
+
+
+
+
+
+
+
+
+
+## Code of the exercise
+```java
+class Rationnel{
+
+    int num;
+    int den;
+
+    Rationnel(int num, int den){
+        this.num = num;
+        this.den = den;
+    }
+    Rationnel add(Rationnel r){
+        return new Rationnel(this.num*r.den + this.den*r.num, this.den*r.den);
+    }
+    Rationnel sub(Rationnel r){
+        return new Rationnel(this.num*r.den - this.den*r.num, this.den*r.den);
+    }
+    Rationnel mul(Rationnel r){
+        return new Rationnel(this.num*r.num, this.den*r.den);
+    }
+    Rationnel div(Rationnel r){
+        return new Rationnel(this.num*r.den, this.den*r.num);
+    }
+    void affiche(){
+        System.out.println(this.num + "/" + this.den);
+    }    
+}
+```
 Still according this formula TCC <= LCC because the factor NIC can only increase the result. So in the worst case their values will be the same.
