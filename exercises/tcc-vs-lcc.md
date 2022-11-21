@@ -4,7 +4,7 @@ Explain under which circumstances *Tight Class Cohesion* (TCC) and *Loose Class 
 
 ## Answer
 
-TCC and LCC will have the same value if the numbers of indirect connected methods is equal to 0.
+TCC and LCC measures the cohesion between the public methods of a class. They are calcluate will the following equations :
 
 TCC = NDC / NP
 NDC : number of direct connections
@@ -12,7 +12,13 @@ NDC : number of direct connections
 LCC = (NDC + NIC) / NP
 NIC : number of indirect connections
 
+So, they will have the same value only if the numbers of indirect connected methods is equal to 0 :
+
 If NIC = 0 then LCC = NDC / NP = TCC
+
+In the exemple of the class Rationnel below, we have 6 public methods : constructor, add, sub, mul, div and affiche. They all use the same 2 attributes num and den. So, we have 6 direct connections and 0 indirect connections. So, TCC = LCC = 6/6 = 1.
+
+```Java 
 
 Still according this formula TCC <= LCC because the factor NIC can only increase the result. So in the worst case their values will be the same.
 
