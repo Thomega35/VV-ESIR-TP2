@@ -23,3 +23,46 @@ Use your rule with different projects and describe you findings below. See the [
 
 ## Answer
 
+To detect the nested `if`s we first create a new custom rule and put this rule in a ruleset
+
+```Xml
+<?xml version="1.0"?>
+
+<ruleset name="customruleset">
+
+    <description>
+        Description
+    </description>
+
+    <rule name="MyRule"
+        language="java"
+        message="If detector"
+        class="net.sourceforge.pmd.lang.rule.XPathRule" >
+
+        <description>
+            Description
+        </description>
+
+        <priority>4</priority>
+
+        <properties>
+
+            <property name="version" value="2.0" />
+            
+            <property name="xpath">
+            <value>
+                <![CDATA[
+                //IfStatement//IfStatement//IfStatement
+                ]]>
+            </value>
+            </property>
+
+        </properties>
+
+    </rule>
+
+</ruleset>
+```
+
+In this rule we had to define its name, language, message and class (net.sourceforge.pmd.lang.rule.XPathRule). Then in a "property" called "xpath". Using the graphic tool we found that the XPath for a triple nested `if` was "//IfStatement//IfStatement//IfStatement".
+Finnaly we executed it and found several placies where the pattern was find.
