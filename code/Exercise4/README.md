@@ -1,3 +1,4 @@
 # Code of your exercise
 
-Put here all the code created for this exercise
+The code of the exercise is in the file /javaparser-starter/src/main/java/fr/istic/vv 
+You have to run Main.java to execute the code.

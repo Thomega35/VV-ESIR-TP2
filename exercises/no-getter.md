@@ -8,7 +8,7 @@ For example, in the following class:
 
 ```Java
 
-class Person {
+public class Person {
     private int age;
     private String name;
     
