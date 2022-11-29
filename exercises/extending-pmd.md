@@ -23,7 +23,7 @@ Use your rule with different projects and describe you findings below. See the [
 
 ## Answer
 
-To detect the nested `if`s we first create a new custom rule and put this rule in a ruleset
+To detect the nested `if`s we first created a new custom rule and put this rule in a ruleset
 
 ```Xml
 <?xml version="1.0"?>
@@ -65,4 +65,33 @@ To detect the nested `if`s we first create a new custom rule and put this rule i
 ```
 
 In this rule we had to define its name, language, message and class (net.sourceforge.pmd.lang.rule.XPathRule). Then in a "property" called "xpath". Using the graphic tool we found that the XPath for a triple nested `if` was "//IfStatement//IfStatement//IfStatement".
-Finnaly we executed it and found several placies where the pattern was find.
+Finnaly we executed it and found several placies where the pattern was found :
+
+```
+/home/kilian/Documents/ESIR/ESIR2/VV/TP2/VV-ESIR-TP2/code/Exercise4/commons-collections/src/main/java/org/apache/commons/collections4/MapUtils.java:229:   MyRule: If detector
+```
+
+If we go to that place we find :
+
+```
+    public static <K> Boolean getBoolean(final Map<? super K, ?> map, final K key) {
+        if (map != null) {
+            final Object answer = map.get(key);
+            if (answer != null) {
+                if (answer instanceof Boolean) {
+                    return (Boolean) answer;
+                }
+                if (answer instanceof String) {
+                    return Boolean.valueOf((String) answer);
+                }
+                if (answer instanceof Number) {
+                    final Number n = (Number) answer;
+                    return n.intValue() != 0 ? Boolean.TRUE : Boolean.FALSE;
+                }
+            }
+        }
+        return null;
+    }
+```
+
+So it works.
