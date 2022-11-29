@@ -18,11 +18,10 @@ If NIC = 0 then LCC = NDC / NP = TCC
 
 In the exemple of the class Rationnel below, we have 6 public methods : constructor, add, sub, mul, div and affiche. They all use the same 2 attributes num and den. So, we have 6 direct connections and 0 indirect connections. So, TCC = LCC = 6/6 = 1.
 
-```Java 
-
 Still according this formula TCC <= LCC because the factor NIC can only increase the result. So in the worst case their values will be the same.
 
 ## Code of the exercise
+
 ```java
 class Rationnel{
 
@@ -50,3 +49,5 @@ class Rationnel{
     }    
 }
 ```
+
+Here in this code the methods are all directly connected so TCC = LCC
