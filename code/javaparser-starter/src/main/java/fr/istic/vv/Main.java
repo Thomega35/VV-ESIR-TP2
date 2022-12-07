@@ -27,10 +27,20 @@ public class Main {
             System.exit(2);
         }
 
+        // Code to see if attrtibute have getter 
+        //     Print the list of Fields without getter in the class
+        //     Print the list of Fields with    getter in the class
         SourceRoot root = new SourceRoot(file.toPath());
         PublicElementsPrinter printer = new PublicElementsPrinter();
+        // root.parse("", (localPath, absolutePath, result) -> {
+        //     result.ifSuccessful(unit -> unit.accept(printer, null));
+        //     return SourceRoot.Callback.Result.DONT_SAVE;
+        // });
+
+        // Code to calculate the 
+        PublicElementPrinterPart2 printer2 = new PublicElementPrinterPart2();
         root.parse("", (localPath, absolutePath, result) -> {
-            result.ifSuccessful(unit -> unit.accept(printer, null));
+            result.ifSuccessful(unit -> unit.accept(printer2, null));
             return SourceRoot.Callback.Result.DONT_SAVE;
         });
     }
