@@ -6,8 +6,8 @@ public class TestClass {
     
     public String getName() { return name; }
 
-    public boolean isAdult() {
-        return age > 17;
+    public boolean isJohn() {
+        return age == 17 && name.equals("John");
     }
 
     public void main(String[] args) {
