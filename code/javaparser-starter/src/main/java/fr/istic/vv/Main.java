@@ -27,16 +27,20 @@ public class Main {
             System.exit(2);
         }
 
+        System.out.println("Part1 : Getter and Setter for the class in folder " + args[0]);
+        System.out.println();
         // Code to see if attrtibute have getter 
         //     Print the list of Fields without getter in the class
         //     Print the list of Fields with    getter in the class
         SourceRoot root = new SourceRoot(file.toPath());
         PublicElementsPrinter printer = new PublicElementsPrinter();
-        // root.parse("", (localPath, absolutePath, result) -> {
-        //     result.ifSuccessful(unit -> unit.accept(printer, null));
-        //     return SourceRoot.Callback.Result.DONT_SAVE;
-        // });
+        root.parse("", (localPath, absolutePath, result) -> {
+            result.ifSuccessful(unit -> unit.accept(printer, null));
+            return SourceRoot.Callback.Result.DONT_SAVE;
+        });
 
+        System.out.println("Part2 : TCC of the class in folder " + args[0]);
+        System.out.println();
         // Code to calculate the 
         PublicElementPrinterPart2 printer2 = new PublicElementPrinterPart2();
         root.parse("", (localPath, absolutePath, result) -> {
